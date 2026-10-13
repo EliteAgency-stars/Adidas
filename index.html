@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>adidas · Halloween Drop</title>
+  <meta name="description" content="Promoción de Halloween adidas: colección edición limitada, descuentos de miedo y atención directa por WhatsApp." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;600;800&family=Creepster&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Murciélagos animados -->
+  <div class="bats" aria-hidden="true"></div>
+
+  <header class="nav">
+    <a href="#inicio" class="logo" aria-label="adidas inicio">
+      <span class="stripes" aria-hidden="true"><i></i><i></i><i></i></span>
+      adidas
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#coleccion">Colección</a>
+      <a href="#ruleta">Ruleta</a>
+      <a href="#promo">Promo</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false">☰</button>
+  </header>
+
+  <!-- HERO con linterna -->
+  <section class="hero" id="inicio">
+    <div class="hero-dark" id="heroDark" aria-hidden="true"></div>
+    <div class="hero-content">
+      <p class="eyebrow">Edición limitada · Octubre 2026</p>
+      <h1>
+        <span class="spooky">Halloween</span>
+        <span class="big">Night Run</span>
+      </h1>
+      <p class="lead">Corre en la oscuridad. Brilla en la noche. La colección más aterradora del año llegó con hasta <strong>40% OFF</strong>.</p>
+
+      <div class="countdown" id="countdown" aria-live="polite">
+        <div><span id="cd-days">00</span><small>Días</small></div>
+        <div><span id="cd-hours">00</span><small>Horas</small></div>
+        <div><span id="cd-mins">00</span><small>Min</small></div>
+        <div><span id="cd-secs">00</span><small>Seg</small></div>
+      </div>
+
+      <div class="hero-cta">
+        <a href="#coleccion" class="btn btn-primary">Ver colección</a>
+        <a class="btn btn-ghost js-wa" data-msg="¡Hola! Quiero más información sobre la promoción de Halloween de adidas 🎃" href="#">Escríbenos por WhatsApp</a>
+      </div>
+      <p class="hint">👻 Mueve el cursor (o tu dedo) para iluminar la noche</p>
+    </div>
+    <div class="pumpkin-float" aria-hidden="true">🎃</div>
+  </section>
+
+  <!-- Marquesina -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>TRICK OR TREAT · HASTA 40% OFF · ENVÍO GRATIS · EDICIÓN LIMITADA · GLOW IN THE DARK · </span>
+      <span>TRICK OR TREAT · HASTA 40% OFF · ENVÍO GRATIS · EDICIÓN LIMITADA · GLOW IN THE DARK · </span>
+    </div>
+  </div>
+
+  <!-- COLECCIÓN -->
+  <section class="section" id="coleccion">
+    <h2 class="section-title">La colección <span class="accent">de miedo</span></h2>
+    <p class="section-sub">Filtra por categoría y toca un producto para elegir tu talla.</p>
+
+    <div class="filters" role="tablist">
+      <button class="chip active" data-filter="all">Todo</button>
+      <button class="chip" data-filter="running">Running</button>
+      <button class="chip" data-filter="lifestyle">Lifestyle</button>
+      <button class="chip" data-filter="ropa">Ropa</button>
+    </div>
+
+    <div class="grid" id="productGrid"></div>
+  </section>
+
+  <!-- RULETA -->
+  <section class="section ruleta" id="ruleta">
+    <div class="ruleta-copy">
+      <h2 class="section-title">¿Truco o <span class="accent">trato</span>?</h2>
+      <p class="section-sub">Gira el caldero y descubre tu descuento. Solo un giro por persona… o eso dicen 👀</p>
+      <button class="btn btn-primary" id="spinBtn">Girar ahora</button>
+      <div class="result" id="spinResult" hidden>
+        <p id="spinText"></p>
+        <a class="btn btn-ghost js-wa" id="spinWa" href="#">Reclamar por WhatsApp</a>
+      </div>
+    </div>
+    <div class="wheel-wrap">
+      <div class="wheel-pointer" aria-hidden="true">▼</div>
+      <div class="wheel" id="wheel"></div>
+    </div>
+  </section>
+
+  <!-- PROMO -->
+  <section class="section" id="promo">
+    <h2 class="section-title">Así funciona <span class="accent">la promo</span></h2>
+    <div class="steps">
+      <article class="step">
+        <div class="step-icon">🕸️</div>
+        <h3>1. Elige</h3>
+        <p>Explora la colección Halloween Night Run y escoge tus favoritos.</p>
+      </article>
+      <article class="step">
+        <div class="step-icon">🧪</div>
+        <h3>2. Gira</h3>
+        <p>Prueba suerte en la ruleta y obtén tu código de descuento.</p>
+      </article>
+      <article class="step">
+        <div class="step-icon">💬</div>
+        <h3>3. Escríbenos</h3>
+        <p>Envíanos tu pedido por WhatsApp y te asesoramos al instante.</p>
+      </article>
+      <article class="step">
+        <div class="step-icon">📦</div>
+        <h3>4. Recibe</h3>
+        <p>Envío gratis a todo el país antes de la noche del 31.</p>
+      </article>
+    </div>
+
+    <div class="faq">
+      <details>
+        <summary>¿Hasta cuándo es la promoción?</summary>
+        <p>Hasta el 31 de octubre a las 11:59 p. m. o hasta agotar existencias.</p>
+      </details>
+      <details>
+        <summary>¿Los descuentos son acumulables?</summary>
+        <p>El código de la ruleta aplica sobre el precio de promoción. Un código por pedido.</p>
+      </details>
+      <details>
+        <summary>¿Cómo pago?</summary>
+        <p>Escríbenos por WhatsApp y te compartimos los medios de pago disponibles.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- CONTACTO -->
+  <section class="section contacto" id="contacto">
+    <h2 class="section-title">¿Quieres <span class="accent">más información</span>?</h2>
+    <p class="section-sub">Déjanos tus datos y te abrimos el chat de WhatsApp con el mensaje listo.</p>
+    <form class="form" id="contactForm">
+      <label>
+        Nombre
+        <input type="text" name="nombre" required placeholder="Tu nombre" />
+      </label>
+      <label>
+        Ciudad
+        <input type="text" name="ciudad" placeholder="Bogotá, Medellín…" />
+      </label>
+      <label class="full">
+        ¿Qué te interesa?
+        <select name="interes">
+          <option>Tenis de running</option>
+          <option>Tenis lifestyle</option>
+          <option>Ropa y accesorios</option>
+          <option>Toda la colección</option>
+        </select>
+      </label>
+      <label class="full">
+        Mensaje
+        <textarea name="mensaje" rows="3" placeholder="Cuéntanos qué buscas, talla, color…"></textarea>
+      </label>
+      <button type="submit" class="btn btn-wa full">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2Zm5.8 14.03c-.24.68-1.42 1.3-1.95 1.35-.5.05-.97.23-3.27-.68-2.77-1.09-4.52-3.92-4.66-4.1-.13-.18-1.11-1.48-1.11-2.82 0-1.34.7-2 .95-2.27.25-.27.54-.34.72-.34h.52c.17 0 .39-.06.61.47.24.56.79 1.92.86 2.06.07.14.11.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.56.16.27.71 1.17 1.52 1.9 1.05.93 1.93 1.22 2.2 1.36.27.14.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.23.61-.14.25.09 1.6.75 1.87.89.27.14.45.2.52.32.07.11.07.66-.17 1.33Z"/></svg>
+        Enviar por WhatsApp
+      </button>
+    </form>
+    <p class="phone">O llámanos / escríbenos directo: <a class="js-wa" href="#" data-msg="¡Hola! Quiero más información sobre la promo de Halloween 🎃"><strong>+57 312 545 6301</strong></a></p>
+  </section>
+
+  <footer class="footer">
+    <p>Halloween Night Run · Promoción válida hasta el 31/10/2026 o hasta agotar existencias.</p>
+    <p class="small">Precios en pesos colombianos (COP). Imágenes ilustrativas.</p>
+  </footer>
+
+  <!-- Botón flotante WhatsApp -->
+  <a class="wa-float js-wa" href="#" aria-label="Escríbenos por WhatsApp" data-msg="¡Hola! Vi la promo de Halloween de adidas y quiero más información 🎃">
+    <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.21c5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2Zm5.8 14.03c-.24.68-1.42 1.3-1.95 1.35-.5.05-.97.23-3.27-.68-2.77-1.09-4.52-3.92-4.66-4.1-.13-.18-1.11-1.48-1.11-2.82 0-1.34.7-2 .95-2.27.25-.27.54-.34.72-.34h.52c.17 0 .39-.06.61.47.24.56.79 1.92.86 2.06.07.14.11.3.02.48-.09.18-.14.3-.27.46-.14.16-.29.36-.41.48-.14.14-.28.29-.12.56.16.27.71 1.17 1.52 1.9 1.05.93 1.93 1.22 2.2 1.36.27.14.43.11.59-.07.16-.18.68-.79.86-1.06.18-.27.36-.23.61-.14.25.09 1.6.75 1.87.89.27.14.45.2.52.32.07.11.07.66-.17 1.33Z"/></svg>
+    <span class="wa-bubble">¿Dudas? ¡Escríbenos!</span>
+  </a>
+
+  <!-- Modal de producto -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" data-close aria-label="Cerrar">✕</button>
+      <div class="modal-img" id="modalImg"></div>
+      <div class="modal-body">
+        <h3 id="modalTitle"></h3>
+        <p class="modal-desc" id="modalDesc"></p>
+        <p class="price"><span class="old" id="modalOld"></span> <span class="new" id="modalNew"></span></p>
+        <p class="label">Elige tu talla</p>
+        <div class="sizes" id="modalSizes"></div>
+        <a class="btn btn-wa full" id="modalWa" href="#">Pedir por WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
