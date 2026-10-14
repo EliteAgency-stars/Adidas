@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adidas Halloween Night</title>
+<meta name="description" content="Evento de Halloween Adidas: drops exclusivos, concurso de disfraces y descuentos de miedo.">
+<link rel="icon" href="assets/adidas-logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Creepster&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#07060a; --bg2:#120d18; --ink:#f3ede4; --muted:#a79fb2;
+    --pumpkin:#ff7a00; --blood:#b3001b; --slime:#8cff3d; --line:#2a2233;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--ink);font-family:Inter,system-ui,sans-serif;line-height:1.5;overflow-x:hidden}
+  a{color:inherit}
+  .wrap{max-width:1100px;margin:0 auto;padding:0 16px}
+
+  /* ---------- header ---------- */
+  header{position:sticky;top:0;z-index:20;background:rgba(7,6,10,.82);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;gap:12px;height:64px}
+  .logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:#fff}
+  .logo img{height:40px;filter:invert(1)}
+  .logo span{font-family:Creepster,cursive;color:var(--pumpkin);font-size:1.15rem;letter-spacing:1px}
+  .navlinks{display:flex;gap:18px;font-size:.9rem;font-weight:600}
+  .navlinks a{text-decoration:none;color:var(--muted)}
+  .navlinks a:hover{color:var(--pumpkin)}
+  .music{border:1px solid var(--pumpkin);background:transparent;color:var(--pumpkin);border-radius:999px;padding:8px 14px;font-weight:800;cursor:pointer;white-space:nowrap}
+  .music.on{background:var(--pumpkin);color:#000;box-shadow:0 0 18px var(--pumpkin)}
+  @media (max-width:720px){.navlinks{display:none}}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;min-height:92vh;display:grid;place-items:center;text-align:center;overflow:hidden;
+        background:radial-gradient(ellipse at 50% 18%,#3a1b05 0%,#140a1a 45%,var(--bg) 75%)}
+  .moon{position:absolute;top:8%;right:10%;width:clamp(90px,16vw,180px);aspect-ratio:1;border-radius:50%;
+        background:radial-gradient(circle at 35% 35%,#fff7d6,#f4d27a 60%,#c99a2e);box-shadow:0 0 80px 20px rgba(255,200,90,.35)}
+  .fog{position:absolute;inset:auto -20% 0 -20%;height:45%;background:
+        radial-gradient(ellipse at 20% 80%,rgba(200,190,220,.18),transparent 60%),
+        radial-gradient(ellipse at 70% 90%,rgba(200,190,220,.14),transparent 55%);
+        animation:drift 18s ease-in-out infinite alternate;pointer-events:none}
+  @keyframes drift{to{transform:translateX(8%)}}
+  .hero-inner{position:relative;z-index:2;padding:60px 16px}
+  .hero-logo{width:clamp(140px,26vw,240px);filter:invert(1) drop-shadow(0 0 22px rgba(255,122,0,.7));animation:flicker 5s infinite}
+  @keyframes flicker{0%,19%,21%,62%,64%,100%{opacity:1}20%,63%{opacity:.35}}
+  h1{font-family:Creepster,cursive;font-weight:400;font-size:clamp(3rem,11vw,7.5rem);line-height:.95;color:var(--pumpkin);
+     text-shadow:0 0 12px rgba(255,122,0,.6),0 6px 0 var(--blood);margin:18px 0 10px}
+  .tag{font-size:clamp(1rem,2.4vw,1.3rem);color:var(--muted);max-width:620px;margin:0 auto}
+  .date{display:inline-block;margin-top:18px;padding:6px 14px;border:1px dashed var(--slime);color:var(--slime);border-radius:6px;font-weight:800;letter-spacing:1px}
+  .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:28px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:14px 22px;border-radius:10px;font-weight:800;text-decoration:none;border:2px solid transparent;transition:transform .15s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn.primary{background:var(--pumpkin);color:#000}
+  .btn.ghost{border-color:var(--ink);color:var(--ink)}
+  .bat{position:absolute;width:44px;fill:#000;filter:drop-shadow(0 0 4px rgba(255,122,0,.8));z-index:1;animation:fly linear infinite}
+  @keyframes fly{0%{transform:translate(-10vw,0) scale(.8)}50%{transform:translate(50vw,-6vh) scale(1)}100%{transform:translate(115vw,4vh) scale(.8)}}
+  .bat path{animation:flap .25s ease-in-out infinite alternate;transform-origin:center}
+  @keyframes flap{to{transform:scaleY(.4)}}
+
+  /* ---------- countdown ---------- */
+  .countdown{display:flex;gap:10px;justify-content:center;margin-top:26px}
+  .cd{min-width:74px;padding:10px 8px;background:var(--bg2);border:1px solid var(--line);border-radius:10px}
+  .cd b{display:block;font-size:1.9rem;font-variant-numeric:tabular-nums;color:#fff}
+  .cd small{font-size:.7rem;text-transform:uppercase;letter-spacing:1px;color:var(--muted)}
+
+  /* ---------- sections ---------- */
+  section{padding:80px 0;border-top:1px solid var(--line)}
+  h2{font-family:Creepster,cursive;font-weight:400;font-size:clamp(2.2rem,6vw,3.4rem);color:var(--pumpkin);margin-bottom:8px}
+  .lead{color:var(--muted);margin-bottom:34px;max-width:640px}
+  .grid{display:grid;gap:18px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+  .card{background:linear-gradient(180deg,var(--bg2),#0b0910);border:1px solid var(--line);border-radius:14px;padding:22px;position:relative;overflow:hidden}
+  .card:hover{border-color:var(--pumpkin)}
+  .card .ico{font-size:2rem}
+  .card h3{margin:10px 0 6px;font-size:1.15rem}
+  .card p{color:var(--muted);font-size:.95rem}
+  .prod{display:flex;flex-direction:column}
+  .shoe{height:150px;display:grid;place-items:center;font-size:4.5rem;border-radius:10px;margin-bottom:14px;
+        background:radial-gradient(circle,rgba(255,122,0,.25),transparent 70%)}
+  .price{margin-top:auto;padding-top:12px;display:flex;justify-content:space-between;align-items:baseline}
+  .price b{font-size:1.25rem;color:var(--slime)}
+  .price s{color:var(--muted);font-size:.9rem}
+  .badge{position:absolute;top:14px;right:14px;background:var(--blood);color:#fff;font-size:.72rem;font-weight:800;padding:4px 8px;border-radius:6px}
+
+  .schedule{list-style:none;display:grid;gap:12px}
+  .schedule li{display:grid;grid-template-columns:90px 1fr;gap:14px;padding:16px;background:var(--bg2);border-left:4px solid var(--pumpkin);border-radius:8px}
+  .schedule time{font-weight:800;color:var(--pumpkin)}
+
+  /* ---------- contact ---------- */
+  .contact{text-align:center;background:radial-gradient(ellipse at 50% 0%,#2a0c10,var(--bg) 70%)}
+  .phone{display:inline-block;font-size:clamp(1.8rem,6vw,3rem);font-weight:800;color:#fff;text-decoration:none;margin:10px 0 24px;
+         text-shadow:0 0 18px rgba(255,122,0,.7)}
+  .btn.wa{background:#25d366;color:#04210f}
+
+  footer{padding:30px 0;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem;text-align:center}
+  footer img{height:34px;filter:invert(1);opacity:.7;display:block;margin:0 auto 10px}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s,transform .7s}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top"><img src="assets/adidas-logo.svg" alt="adidas"><span>Halloween</span></a>
+    <nav class="navlinks">
+      <a href="#evento">Evento</a><a href="#drops">Drops</a><a href="#agenda">Agenda</a><a href="#contacto">Contacto</a>
+    </nav>
+    <button class="music" id="musicBtn" aria-pressed="false">🔇 Música</button>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="moon"></div>
+    <svg class="bat" style="top:18%;animation-duration:14s" viewBox="0 0 64 32"><path d="M32 10c2-4 4-6 6-6-1 3 0 5 2 6 4-4 12-6 24-2-6 2-9 6-10 12-3-3-7-3-10 0-2-2-5-2-7 2-1-2-3-3-5-3s-4 1-5 3c-2-4-5-4-7-2-3-3-7-3-10 0C9 14 6 10 0 8c12-4 20-2 24 2 2-1 3-3 2-6 2 0 4 2 6 6z"/></svg>
+    <svg class="bat" style="top:30%;animation-duration:20s;animation-delay:-7s;width:30px" viewBox="0 0 64 32"><path d="M32 10c2-4 4-6 6-6-1 3 0 5 2 6 4-4 12-6 24-2-6 2-9 6-10 12-3-3-7-3-10 0-2-2-5-2-7 2-1-2-3-3-5-3s-4 1-5 3c-2-4-5-4-7-2-3-3-7-3-10 0C9 14 6 10 0 8c12-4 20-2 24 2 2-1 3-3 2-6 2 0 4 2 6 6z"/></svg>
+    <svg class="bat" style="top:12%;animation-duration:26s;animation-delay:-15s;width:24px" viewBox="0 0 64 32"><path d="M32 10c2-4 4-6 6-6-1 3 0 5 2 6 4-4 12-6 24-2-6 2-9 6-10 12-3-3-7-3-10 0-2-2-5-2-7 2-1-2-3-3-5-3s-4 1-5 3c-2-4-5-4-7-2-3-3-7-3-10 0C9 14 6 10 0 8c12-4 20-2 24 2 2-1 3-3 2-6 2 0 4 2 6 6z"/></svg>
+    <div class="fog"></div>
+
+    <div class="hero-inner">
+      <img class="hero-logo" src="assets/adidas-logo.svg" alt="adidas Originals">
+      <h1>Halloween<br>Night</h1>
+      <p class="tag">Una noche de terror, tres franjas y drops que te van a quitar el aliento. Ven disfrazado y llévate descuentos de miedo.</p>
+      <span class="date">🎃 31 OCT 2026 · 7:00 PM</span>
+      <div class="countdown" id="countdown" aria-live="polite">
+        <div class="cd"><b id="d">00</b><small>días</small></div>
+        <div class="cd"><b id="h">00</b><small>horas</small></div>
+        <div class="cd"><b id="m">00</b><small>min</small></div>
+        <div class="cd"><b id="s">00</b><small>seg</small></div>
+      </div>
+      <div class="cta">
+        <a class="btn primary" data-wa href="#">💀 Reserva por WhatsApp</a>
+        <a class="btn ghost" href="#drops">Ver drops</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="evento">
+    <div class="wrap">
+      <h2>El evento</h2>
+      <p class="lead">Una noche en la tienda convertida en casa embrujada. Entrada libre con registro previo.</p>
+      <div class="grid">
+        <div class="card reveal"><div class="ico">🧟</div><h3>Concurso de disfraces</h3><p>El mejor disfraz se lleva un par de sneakers edición Halloween y un outfit completo.</p></div>
+        <div class="card reveal"><div class="ico">🕯️</div><h3>Descuentos de miedo</h3><p>Hasta 31% OFF solo esa noche. Si vienes disfrazado, 10% extra en tu compra.</p></div>
+        <div class="card reveal"><div class="ico">🎧</div><h3>DJ + ambiente tenebroso</h3><p>Música en vivo, niebla, luces y sorpresas en cada rincón de la tienda.</p></div>
+        <div class="card reveal"><div class="ico">🍬</div><h3>Truco o trato</h3><p>Dulces para los pequeños y regalos sorpresa para los primeros 100 asistentes.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="drops">
+    <div class="wrap">
+      <h2>Drops embrujados</h2>
+      <p class="lead">Ediciones limitadas que solo aparecen en la noche de Halloween.</p>
+      <div class="grid">
+        <div class="card prod reveal"><span class="badge">LIMITADO</span><div class="shoe">👟</div><h3>Samba “Midnight Pumpkin”</h3><p>Negro profundo con detalles naranja calabaza.</p><div class="price"><b>$89.99</b><s>$129.99</s></div></div>
+        <div class="card prod reveal"><span class="badge">NUEVO</span><div class="shoe">🦇</div><h3>Superstar “Bat Shell”</h3><p>Puntera icónica en negro mate, franjas glow-in-the-dark.</p><div class="price"><b>$79.99</b><s>$109.99</s></div></div>
+        <div class="card prod reveal"><span class="badge">-31%</span><div class="shoe">🧥</div><h3>Firebird “Phantom” Track Top</h3><p>Chaqueta clásica con tres franjas reflectivas.</p><div class="price"><b>$64.99</b><s>$94.99</s></div></div>
+        <div class="card prod reveal"><span class="badge">GLOW</span><div class="shoe">🕸️</div><h3>Gazelle “Web Walker”</h3><p>Ante gris con estampado de telaraña.</p><div class="price"><b>$84.99</b><s>$119.99</s></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="agenda">
+    <div class="wrap">
+      <h2>Agenda de la noche</h2>
+      <p class="lead">31 de octubre — no llegues tarde… o sí, si te atreves.</p>
+      <ul class="schedule">
+        <li class="reveal"><time>7:00 PM</time><span>Apertura de puertas y truco o trato</span></li>
+        <li class="reveal"><time>8:00 PM</time><span>Lanzamiento de los drops embrujados</span></li>
+        <li class="reveal"><time>9:30 PM</time><span>Desfile y concurso de disfraces</span></li>
+        <li class="reveal"><time>10:30 PM</time><span>Premiación y DJ set hasta medianoche</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contacto" class="contact">
+    <div class="wrap">
+      <h2>Reserva tu lugar</h2>
+      <p class="lead" style="margin:0 auto">Escríbenos o llámanos para apartar tu entrada y tu par antes de que desaparezcan.</p>
+      <a class="phone" id="phoneLink" href="#"></a>
+      <div class="cta">
+        <a class="btn wa" data-wa href="#">💬 WhatsApp</a>
+        <a class="btn ghost" id="callBtn" href="#">📞 Llamar</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <img src="assets/adidas-logo.svg" alt="adidas">
+  © 2026 · Evento Halloween Night · Impossible is Nothing 🎃
+</footer>
+
+<script>
+/* ====== TU NÚMERO: cámbialo solo aquí ====== */
+const CONTACT = {
+  display: '+00 000 000 0000',   // como se muestra en pantalla
+  intl:    '000000000000',       // solo dígitos con código de país (para WhatsApp)
+  waText:  'Hola! Quiero reservar para el evento Adidas Halloween Night 🎃'
+};
+
+document.getElementById('phoneLink').textContent = CONTACT.display;
+document.getElementById('phoneLink').href = 'tel:+' + CONTACT.intl;
+document.getElementById('callBtn').href = 'tel:+' + CONTACT.intl;
+document.querySelectorAll('[data-wa]').forEach(a => {
+  a.href = 'https://wa.me/' + CONTACT.intl + '?text=' + encodeURIComponent(CONTACT.waText);
+  a.target = '_blank'; a.rel = 'noopener';
+});
+
+/* ---------- cuenta regresiva ---------- */
+const target = new Date('2026-10-31T19:00:00');
+const pad = n => String(Math.max(0, n)).padStart(2, '0');
+function tick() {
+  const diff = target - new Date();
+  if (diff <= 0) {
+    document.getElementById('countdown').innerHTML = '<div class="cd" style="padding:12px 20px"><b>🎃 ¡Es hoy!</b></div>';
+    return;
+  }
+  d.textContent = pad(Math.floor(diff / 864e5));
+  h.textContent = pad(Math.floor(diff / 36e5) % 24);
+  m.textContent = pad(Math.floor(diff / 6e4) % 60);
+  s.textContent = pad(Math.floor(diff / 1e3) % 60);
+  setTimeout(tick, 1000);
+}
+tick();
+
+/* ---------- animación al hacer scroll ---------- */
+const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add('in')), { threshold: .15 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* ---------- música tenebrosa generada en vivo (Web Audio, sin archivos) ---------- */
+let ctx, master, timers = [];
+function startMusic() {
+  ctx = new (window.AudioContext || window.webkitAudioContext)();
+  master = ctx.createGain();
+  master.gain.setValueAtTime(0, ctx.currentTime);
+  master.gain.linearRampToValueAtTime(0.55, ctx.currentTime + 3);
+
+  // Eco/reverb casero
+  const delay = ctx.createDelay(2); delay.delayTime.value = 0.42;
+  const fb = ctx.createGain(); fb.gain.value = 0.45;
+  const wet = ctx.createGain(); wet.gain.value = 0.5;
+  delay.connect(fb).connect(delay); delay.connect(wet).connect(master);
+  master.connect(ctx.destination);
+
+  // Drone grave: D1 + A1 desafinados con filtro que "respira"
+  const lp = ctx.createBiquadFilter(); lp.type = 'lowpass'; lp.frequency.value = 220; lp.Q.value = 8;
+  const lfo = ctx.createOscillator(); lfo.frequency.value = 0.07;
+  const lfoAmt = ctx.createGain(); lfoAmt.gain.value = 140;
+  lfo.connect(lfoAmt).connect(lp.frequency); lfo.start();
+  const droneGain = ctx.createGain(); droneGain.gain.value = 0.22;
+  [36.7, 36.95, 55, 73.4].forEach((f, i) => {
+    const o = ctx.createOscillator(); o.type = i % 2 ? 'sawtooth' : 'triangle'; o.frequency.value = f;
+    o.connect(lp); o.start();
+  });
+  lp.connect(droneGain).connect(master);
+
+  // Viento: ruido filtrado que sube y baja
+  const buf = ctx.createBuffer(1, ctx.sampleRate * 2, ctx.sampleRate);
+  const data = buf.getChannelData(0); for (let i = 0; i < data.length; i++) data[i] = Math.random() * 2 - 1;
+  const noise = ctx.createBufferSource(); noise.buffer = buf; noise.loop = true;
+  const bp = ctx.createBiquadFilter(); bp.type = 'bandpass'; bp.frequency.value = 600; bp.Q.value = 3;
+  const wlfo = ctx.createOscillator(); wlfo.frequency.value = 0.11;
+  const wamt = ctx.createGain(); wamt.gain.value = 400; wlfo.connect(wamt).connect(bp.frequency); wlfo.start();
+  const windGain = ctx.createGain(); windGain.gain.value = 0.05;
+  noise.connect(bp).connect(windGain).connect(master); noise.start();
+
+  // Campanas en escala menor armónica de D (caja de música maldita)
+  const scale = [293.7, 311.1, 370, 392, 440, 466.2, 554.4, 587.3];
+  function bell() {
+    const t = ctx.currentTime, f = scale[Math.floor(Math.random() * scale.length)] * (Math.random() < .3 ? .5 : 1);
+    const o = ctx.createOscillator(), o2 = ctx.createOscillator(), g = ctx.createGain();
+    o.type = 'sine'; o.frequency.value = f; o2.type = 'sine'; o2.frequency.value = f * 2.76;
+    g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(0.12, t + 0.01); g.gain.exponentialRampToValueAtTime(0.0001, t + 3.5);
+    o.connect(g); o2.connect(g); g.connect(master); g.connect(delay);
+    o.start(t); o2.start(t); o.stop(t + 3.6); o2.stop(t + 3.6);
+    timers.push(setTimeout(bell, 900 + Math.random() * 2200));
+  }
+  // Latido de corazón
+  function heartbeat() {
+    [0, 0.28].forEach(off => {
+      const t = ctx.currentTime + off, o = ctx.createOscillator(), g = ctx.createGain();
+      o.frequency.setValueAtTime(70, t); o.frequency.exponentialRampToValueAtTime(38, t + 0.2);
+      g.gain.setValueAtTime(0.5, t); g.gain.exponentialRampToValueAtTime(0.001, t + 0.25);
+      o.connect(g).connect(master); o.start(t); o.stop(t + 0.3);
+    });
+    timers.push(setTimeout(heartbeat, 1300));
+  }
+  timers.push(setTimeout(bell, 1500), setTimeout(heartbeat, 4000));
+}
+function stopMusic() {
+  timers.forEach(clearTimeout); timers = [];
+  if (!ctx) return;
+  const c = ctx; ctx = null;
+  master.gain.linearRampToValueAtTime(0, c.currentTime + 0.6);
+  setTimeout(() => c.close(), 700);
+}
+const btn = document.getElementById('musicBtn');
+btn.addEventListener('click', () => {
+  const on = !ctx;
+  on ? startMusic() : stopMusic();
+  btn.classList.toggle('on', on);
+  btn.setAttribute('aria-pressed', on);
+  btn.textContent = on ? '🔊 Música' : '🔇 Música';
+});
+</script>
+</body>
+</html>

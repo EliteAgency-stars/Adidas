@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 200" role="img" aria-label="adidas">
+  <!-- Trefoil: tres hojas cortadas por tres franjas horizontales -->
+  <defs>
+    <mask id="stripes">
+      <rect width="240" height="200" fill="#fff"/>
+      <rect x="0" y="86"  width="240" height="7" fill="#000"/>
+      <rect x="0" y="106" width="240" height="7" fill="#000"/>
+      <rect x="0" y="126" width="240" height="7" fill="#000"/>
+    </mask>
+    <clipPath id="base"><rect width="240" height="146"/></clipPath>
+  </defs>
+  <g fill="currentColor" mask="url(#stripes)" clip-path="url(#base)">
+    <ellipse cx="120" cy="80" rx="26" ry="66"/>
+    <ellipse cx="120" cy="80" rx="26" ry="66" transform="rotate(-58 120 146)"/>
+    <ellipse cx="120" cy="80" rx="26" ry="66" transform="rotate(58 120 146)"/>
+  </g>
+  <text x="120" y="190" text-anchor="middle" fill="currentColor"
+        font-family="'Futura','Avenir Next','Helvetica Neue',Arial,sans-serif"
+        font-weight="800" font-size="46" letter-spacing="-1">adidas</text>
+</svg>
